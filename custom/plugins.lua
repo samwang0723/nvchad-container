@@ -3,7 +3,10 @@ local cmp = require "cmp"
 local plugins = {
   "NvChad/nvcommunity",
   { import = "nvcommunity.completion.copilot" },
-  { import = "nvcommunity.lsp.lspsaga" },
+  {
+    import = "nvcommunity.lsp.lspsaga",
+    require("core.utils").load_mappings "lspsaga",
+  },
   -- LSP configurations
   {
     "williamboman/mason.nvim",

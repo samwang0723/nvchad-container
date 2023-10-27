@@ -42,8 +42,6 @@ lspconfig.gopls.setup {
         bounds = true,
       },
       deepCompletion = true,
-      tempModfile = false,
-      expandWorkspaceToModule = false,
       verboseOutput = true,
       gofumpt = true,
       directoryFilters = {
