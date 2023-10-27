@@ -8,10 +8,11 @@ ENV TZ=Asia/Taipei
 
 # Install required packages and setup environment
 # Some lib like util-linux may not needed
-RUN apk add --no-cache bash gcompat git neovim ripgrep build-base wget curl util-linux \
+# You can choose to install other dependency using command:
+# apk add --no-cache ruby ruby-bundler ruby-dev ruby-rdoc ruby-irb github-cli util-linux
+RUN apk add --no-cache bash gcompat git neovim ripgrep build-base wget curl \
     && apk add --no-cache nodejs npm lua5.4 luajit python3 py3-pip \
-    # && apk add --no-cache ruby ruby-bundler ruby-dev ruby-rdoc ruby-irb github-cli \
-    && apk add --no-cache rust cargo go
+    && apk add --no-cache go
 
 # Clone the NvChad repository
 RUN git clone https://github.com/NvChad/NvChad ~/.config/nvim

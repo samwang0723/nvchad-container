@@ -95,3 +95,12 @@ lspconfig.jsonls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+
+-- General LSP loading
+local f_status_ok, fidget = pcall(require, "fidget")
+if not f_status_ok then
+  vim.notify "fidget: cannot be found!"
+  return
+end
+
+fidget.setup {}

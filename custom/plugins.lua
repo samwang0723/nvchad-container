@@ -43,6 +43,7 @@ local plugins = {
       return M
     end,
   },
+  { "j-hui/fidget.nvim", tag = "legacy" },
 
   -- Rust configurations
   {
