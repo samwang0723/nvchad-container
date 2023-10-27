@@ -57,10 +57,26 @@ If still failed, install manually
 
 Preparation to install rust development environment in the container
 
-    apk add --no-cache -U lldb lldb-dev musl-dev libgcc
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    $ apk add --no-cache -U lldb lldb-dev musl-dev libgcc
+    $ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 Make sure rust/cargo build using correct target
 
-    rustup target list --installed
-    rustup target add x86_64-unknown-linux-musl
+    $ rustup target list --installed
+    $ rustup target add x86_64-unknown-linux-musl
+
+### Golang configuration
+
+If default Alpine apk add go version not fit with your requirement
+
+    $ apk del go
+
+Download the binary manually
+
+    $ wget https://dl.google.com/go/go1.21.3.linux-amd64.tar.gz
+    $ tar -C /usr/local -xzf go1.21.3.linux-amd64.tar.gz
+
+Change profile `$PATH`
+
+    $ export PATH="$PATH:/usr/local/go/bin"
+    $ source /etc/profile
