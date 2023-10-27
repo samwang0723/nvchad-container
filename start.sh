@@ -20,6 +20,7 @@ if ! docker image inspect nvchad-base >/dev/null 2>&1; then
 else
 	# After setup all environment, you can commit into a new image
 	# docker commit -a 'sam.wang.0723@gmail.com' -m 'NvChad cloud container'  3779db8b72ac nvchad-base:v2
+	# docker tag nvchad-base:v2 samwang0723/nvchad-base:v2
 	# docker run -it -v .:/workspace --name nvchad-container-v2 nvchad-base:v2 /bin/bash '-l'
 
 	# If the image already exists, just run it
