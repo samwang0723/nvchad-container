@@ -80,3 +80,18 @@ Change profile `$PATH`
 
     $ export PATH="$PATH:/usr/local/go/bin"
     $ source /etc/profile
+
+### Store password securely
+
+You will need to install gpg and generate a gpg key
+
+    $ apk add gpg gpg-agent
+    $ gpg --full-generate-key
+    $ gpg --list-keys
+
+Once gpg key generated, we can start using password
+
+    $ apk add pass
+    $ pass init {gpg-key-id}
+    $ pass insert {domain}/{pass-name}
+    $ pass show {domain}/{pass-name}
