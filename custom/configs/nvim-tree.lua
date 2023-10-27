@@ -11,6 +11,9 @@ nvim_tree.setup({
   sync_root_with_cwd = true,
   view = {
     adaptive_size = false,
+    side = "left",
+    width = 30,
+    preserve_window_proportions = true,
   },
   renderer = {
     full_name = true,
@@ -53,6 +56,9 @@ nvim_tree.setup({
     enable = true,
     ignore = false,
     timeout = 500,
+  },
+  filesystem_watchers = {
+    enable = true,
   },
   actions = {
     change_dir = {

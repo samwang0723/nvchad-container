@@ -28,6 +28,7 @@ local opts = {
         "markdown",
         "go",
         "ruby",
+        "lua",
       },
       command = "prettier",
       args = { "--config", vim.env.HOME .. "/.prettierrc.yml", "-" },

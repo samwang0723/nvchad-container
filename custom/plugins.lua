@@ -1,15 +1,12 @@
 local cmp = require "cmp"
 
 local plugins = {
+  "NvChad/nvcommunity",
+  { import = "nvcommunity.completion.copilot" },
+  { import = "nvcommunity.lsp.lspsaga" },
   -- LSP configurations
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "rust-analyzer",
-        "gopls",
-      },
-    },
   },
   {
     "neovim/nvim-lspconfig",
@@ -19,12 +16,32 @@ local plugins = {
     end,
   },
   {
+    "jose-elias-alvarez/null-ls.nvim",
+    opts = function()
+      return require "custom.configs.null-ls"
+    end,
+    lazy = false,
+  },
+  {
     "MunifTanjim/prettier.nvim",
     dependencies = "jose-elias-alvarez/null-ls.nvim",
     config = function()
       require "custom.configs.prettier"
     end,
     lazy = false,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    opts = function()
+      local M = require "plugins.configs.cmp"
+      M.completion.completeopt = "menu,menuone,noselect"
+      M.mapping["<CR>"] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = false,
+      }
+      table.insert(M.sources, { name = "crates" })
+      return M
+    end,
   },
 
   -- Rust configurations
@@ -72,19 +89,6 @@ local plugins = {
       require("nvim-dap-virtual-text").setup()
     end,
   },
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function()
-      local M = require "plugins.configs.cmp"
-      M.completion.completeopt = "menu,menuone,noselect"
-      M.mapping["<CR>"] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Insert,
-        select = false,
-      }
-      table.insert(M.sources, { name = "crates" })
-      return M
-    end,
-  },
 
   -- Golang configurations
   {
@@ -94,12 +98,6 @@ local plugins = {
     config = function(_, opts)
       require("dap-go").setup(opts)
       require("core.utils").load_mappings "dap_go"
-    end,
-  },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    opts = function()
-      return require "custom.configs.null-ls"
     end,
   },
   {

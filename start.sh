@@ -25,5 +25,17 @@ else
 
 	# If the image already exists, just run it
 	docker start nvchad-container-v2
+	docker update --cpus 2 nvchad-container-v2
 	docker exec -it nvchad-container-v2 bash '-l'
 fi
+
+# Rust configuration
+# apk del rust
+# apk del cargo
+# curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# apk add lldb
+# apk add lldb-dev
+# rustup target list --installed
+# rustup target add x86_64-unknown-linux-musl
+# apk add --no-cache -U musl-dev
+# apk add -U --no-cache libgcc
