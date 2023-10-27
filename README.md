@@ -95,3 +95,31 @@ Once gpg key generated, we can start using password
     $ pass init {gpg-key-id}
     $ pass insert {domain}/{pass-name}
     $ pass show {domain}/{pass-name}
+
+### Oh-my-zsh
+
+    $ apk add zsh
+    $ vi /etc/passwd
+
+Modify to be `root:x:0:0:root:/root:/bin/zsh`
+
+    $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install
+
+Highlighting
+
+    $ cd $HOME/.oh-my-zsh/plugins
+    $ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+    $ echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> $HOME/.zshrc
+
+Autosuggestions
+
+    $ cd $HOME/.oh-my-zsh/plugins
+    $ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+Add plugin
+
+    plugins = (
+        git
+        zsh-autosuggestions
+    )
+
