@@ -2,11 +2,12 @@ local cmp = require "cmp"
 
 local plugins = {
   "NvChad/nvcommunity",
-  { import = "nvcommunity.completion.copilot" },
+
   {
     import = "nvcommunity.lsp.lspsaga",
     require("core.utils").load_mappings "lspsaga",
   },
+
   -- LSP configurations
   {
     "williamboman/mason.nvim",
@@ -126,6 +127,62 @@ local plugins = {
       require "custom.configs.nvim-tree"
     end,
     lazy = false,
+  },
+
+  -- ChatGPT / AI
+  {
+    "dreamsofcode-io/ChatGPT.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("chatgpt").setup {
+        async_api_key_cmd = "pass show api/openai",
+      }
+    end,
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    event = "InsertEnter",
+    opts = function()
+      local M = {}
+      M.copilot = {
+        -- Possible configurable fields can be found on:
+        -- https://github.com/zbirenbaum/copilot.lua#setup-and-configuration
+        suggestion = {
+          enable = false,
+        },
+        panel = {
+          enable = false,
+        },
+      }
+      return M
+    end,
+  },
+
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup()
+        end,
+      },
+    },
+    opts = {
+      sources = {
+        { name = "nvim_lsp", group_index = 2 },
+        { name = "copilot", group_index = 2 },
+        { name = "luasnip", group_index = 2 },
+        { name = "buffer", group_index = 2 },
+        { name = "nvim_lua", group_index = 2 },
+        { name = "path", group_index = 2 },
+      },
+    },
   },
 }
 return plugins
