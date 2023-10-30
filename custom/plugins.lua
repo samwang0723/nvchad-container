@@ -7,6 +7,12 @@ local plugins = {
     import = "nvcommunity.lsp.lspsaga",
     require("core.utils").load_mappings "lspsaga",
   },
+  {
+    "lewis6991/gitsigns.nvim",
+    init = function()
+      require("gitsigns").setup()
+    end,
+  },
 
   -- LSP configurations
   {
@@ -48,6 +54,12 @@ local plugins = {
     end,
   },
   { "j-hui/fidget.nvim", tag = "legacy" },
+  {
+    "simrat39/symbols-outline.nvim",
+    init = function()
+      require("symbols-outline").setup()
+    end,
+  },
 
   -- Rust configurations
   {
