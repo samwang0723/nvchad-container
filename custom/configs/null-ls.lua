@@ -37,6 +37,8 @@ local opts = {
     diagnostics.eslint_d.with { -- Mason or npm install -g eslint_d
       diagnostics_format = "[eslint] #{m}\n(#{c})",
     },
+    diagnostics.mypy,
+    diagnostics.ruff,
   },
   on_attach = function(client, bufnr)
     if client.supports_method "textDocument/formatting" then

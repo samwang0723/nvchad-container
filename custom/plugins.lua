@@ -117,6 +117,39 @@ local plugins = {
     end,
   },
 
+  -- Python configurations
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      local dap = require "dap"
+      local dapui = require "dapui"
+      dapui.setup()
+      dap.listeners.after.event_initialized["dapui_config"] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated["dapui_config"] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited["dapui_config"] = function()
+        dapui.close()
+      end
+    end,
+  },
+  {
+    "mfussenegger/nvim-dap-python",
+    ft = "python",
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "rcarriga/nvim-dap-ui",
+    },
+    config = function(_, opts)
+      local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+      require("dap-python").setup(path)
+      require("core.utils").load_mappings "dap_python"
+    end,
+  },
+
   -- Style configurations
   {
     "nvim-tree/nvim-tree.lua",
@@ -140,7 +173,7 @@ local plugins = {
     },
     config = function()
       require("chatgpt").setup {
-        async_api_key_cmd = "pass show api/openai",
+        async_api_key_cmd = "echo $OPENAI_API_KEY",
       }
     end,
   },

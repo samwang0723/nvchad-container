@@ -94,6 +94,13 @@ lspconfig.jsonls.setup {
   capabilities = capabilities,
 }
 
+-- Python
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "python" },
+}
+
 -- General LSP loading
 local f_status_ok, fidget = pcall(require, "fidget")
 if not f_status_ok then

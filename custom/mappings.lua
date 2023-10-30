@@ -62,6 +62,17 @@ M.gopher = {
   },
 }
 
+M.dap_python = {
+  plugin = true,
+  n = {
+    ["<leader>dpr"] = {
+      function()
+        require("dap-python").test_method()
+      end,
+    },
+  },
+}
+
 M.lspsaga = {
   plugin = true,
   n = {
