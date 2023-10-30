@@ -108,7 +108,7 @@ export PATH="$PATH:/root/.cargo/bin"
 export PATH="$PATH:/root/.local/share/nvim/mason/bin"
 export GPG_TTY=$(tty)
 
-export OPENAI_API_KEY="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"
+export OPENAI_API_KEY=""
 
 alias nv='nvim'
 
