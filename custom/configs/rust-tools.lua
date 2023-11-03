@@ -22,6 +22,7 @@ local options = {
         },
       },
     },
+    standalone = false,
   },
   -- debugging stuff
   dap = {
