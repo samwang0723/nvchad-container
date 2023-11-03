@@ -80,6 +80,10 @@ M.lspsaga = {
       "<cmd> Lspsaga finder <CR>",
       "Lsp finder",
     },
+    ["<leader>ld"] = {
+      "<cmd> Lspsaga diagnostic_jump_prev <CR>",
+      "Lsp diagnostic_jump_prev",
+    },
   },
 }
 
