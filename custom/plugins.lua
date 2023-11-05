@@ -183,10 +183,11 @@ local plugins = {
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim",
     },
-    config = function()
-      require("chatgpt").setup {
-        async_api_key_cmd = "echo $OPENAI_API_KEY",
-      }
+    opts = function()
+      return require "custom.configs.chatgpt"
+    end,
+    config = function(_, opts)
+      require("chatgpt").setup(opts)
     end,
   },
   {

@@ -115,8 +115,6 @@ source /root/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.
 export PATH="$PATH:/root/.cargo/bin"
 export PATH="$PATH:/root/.local/share/nvim/mason/bin"
 
-export OPENAI_API_KEY=""
-
 export TERM='screen-256color'
 alias nv='nvim'
 alias tmux='tmux -u'
