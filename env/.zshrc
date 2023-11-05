@@ -115,8 +115,7 @@ source /root/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.
 export PATH="$PATH:/root/.cargo/bin"
 export PATH="$PATH:/root/.local/share/nvim/mason/bin"
 
-export OPENAI_API_KEY="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"
-export PROXY_API_KEY="Oi3KDCEVs8BY5dPSE4bgzEbKSeLct6bt"
+export OPENAI_API_KEY=""
 
 export TERM='screen-256color'
 alias nv='nvim'
