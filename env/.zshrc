@@ -115,6 +115,7 @@ source /root/.oh-my-zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.
 export PATH="$PATH:/root/.cargo/bin"
 export PATH="$PATH:/root/.local/share/nvim/mason/bin"
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 export GOPATH="/home/workspace" 
 export TERM='screen-256color'
