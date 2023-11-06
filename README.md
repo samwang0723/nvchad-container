@@ -29,11 +29,11 @@ Find the container ID
 
 Pack into a new image with version
 
-    $ docker commit -a '{your_name}@gmail.com' -m 'NvChad remote dev container' {container_id} {your_repo}/nvchad-base:v1.0.1
+    $ docker commit -a '{your_email}' -m 'NvChad remote dev container' {container_id} {your_repo}/nvchad-base:v1.3.0
 
 Upload to docker repository (Optional)
 
-    $ docker push {your_repo}/nvchad-base:v1.0.1
+    $ docker push {your_repo}/nvchad-base:v1.3.0
 
 ### Step 3. Enjoy the hacking
 
@@ -81,7 +81,7 @@ Change profile `$PATH`
     $ export PATH="$PATH:/usr/local/go/bin"
     $ source /etc/profile
 
-### Store password securely
+### Store password securely (Optional, you may meet gpg issue)
 
 You will need to install gpg and generate a gpg key
 
@@ -103,7 +103,7 @@ Once gpg key generated, we can start using password
 
 Modify to be `root:x:0:0:root:/root:/bin/zsh`
 
-    $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install
+    $ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 Highlighting
 
@@ -121,5 +121,15 @@ Add plugin
     plugins = (
         git
         zsh-autosuggestions
+        zsh-syntax-highlighting
+        tmux
     )
 
+### Tmux
+
+https://dev.to/andrenbrandao/terminal-setup-with-zsh-tmux-dracula-theme-48lm
+
+    $ apk add tmux
+    $ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+Press `<prefix> + I` (capital i) to install it. The default <prefix> is `ctrl + b`, so press `ctrl + b + I`.
