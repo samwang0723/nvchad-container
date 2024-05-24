@@ -9,15 +9,8 @@ local options = {
       -- to enable rust-analyzer settings visit:
       -- https://github.com/rust-analyzer/rust-analyzer/blob/master/docs/user/generated_config.adoc
       ["rust-analyzer"] = {
-        cargo = {
-          target = "x86_64-unknown-linux-musl",
-        },
-        check = {
-          target = "x86_64-unknown-linux-musl",
-        },
         -- enable clippy on save
         checkOnSave = {
-          targets = "x86_64-unknown-linux-musl",
           command = "clippy",
         },
       },
