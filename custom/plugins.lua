@@ -58,6 +58,7 @@ local plugins = {
     "simrat39/symbols-outline.nvim",
     init = function()
       require("symbols-outline").setup()
+      require("core.utils").load_mappings "outlines"
     end,
   },
 

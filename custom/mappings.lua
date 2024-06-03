@@ -91,4 +91,14 @@ M.lspsaga = {
   },
 }
 
+M.outlines = {
+  plugin = true,
+  n = {
+    ["<leader>so"] = {
+      "<cmd> SymbolsOutline <CR>",
+      "Show outline",
+    },
+  },
+}
+
 return M

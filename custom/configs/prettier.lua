@@ -1,10 +1,10 @@
 local prettier_status_ok, prettier = pcall(require, "prettier")
 if not prettier_status_ok then
-  vim.notify("prettier: cannot be found!")
+  vim.notify "prettier: cannot be found!"
   return
 end
 
-prettier.setup({
+prettier.setup {
   debug = false,
   filetypes = {
     "javascript",
@@ -26,16 +26,16 @@ prettier.setup({
   --to_stdin = true,
   ["null-ls"] = {
     condition = function()
-      return prettier.config_exists({
+      return prettier.config_exists {
         -- if `false`, skips checking `package.json` for `"prettier"` key
-        check_package_json = false,
-      })
+        check_package_json = true,
+      }
     end,
     runtime_condition = function(params)
       -- return false to skip running prettier
       return true
     end,
-    timeout = 5000,
+    timeout = 10000,
   },
   cli_options = {
     -- arrow_parens = "always",
@@ -57,4 +57,4 @@ prettier.setup({
     --use_tabs = false,
     --vue_indent_script_and_style = false,
   },
-})
+}
