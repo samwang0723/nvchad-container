@@ -12,6 +12,28 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
+    "rust",
+    "bash",
+    "cpp",
+    "dockerfile",
+    "elixir",
+    "gitignore",
+    "go",
+    "gomod",
+    "json",
+    "jsonc",
+    "make",
+    "nix",
+    "proto",
+    "python",
+    "query",
+    "ruby",
+    "scss",
+    "sql",
+    "toml",
+    "vimdoc",
+    "xml",
+    "yaml",
   },
   indent = {
     enable = true,
@@ -33,10 +55,32 @@ M.mason = {
     "typescript-language-server",
     "deno",
     "prettier",
+    "eslint_d",
 
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    -- python stuff
+    "black",
+    "debugpy",
+    "pyright",
+
+    -- golang stuff
+    "gci",
+    "gofumpt",
+    "goimports-reviser",
+    "golangci-lint",
+    "golangci-lint-langserver",
+    "golines",
+    "gopls",
+
+    -- rust stuff
+    "ruff",
+    "rust-analyzer",
+
+    -- others
+    "shfmt",
   },
 }
 

@@ -1,4 +1,5 @@
 local cmp = require "cmp"
+local overrides = require "custom.configs.overrides"
 
 local plugins = {
   "NvChad/nvcommunity",
@@ -16,7 +17,12 @@ local plugins = {
 
   -- LSP configurations
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
+  },
+  {
     "williamboman/mason.nvim",
+    opts = overrides.mason,
   },
   {
     "neovim/nvim-lspconfig",
