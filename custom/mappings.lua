@@ -116,6 +116,18 @@ M.neotest = {
       end,
       "Run the current file",
     },
+    ["<leader>tc"] = {
+      function()
+        require("coverage").load(true)
+      end,
+      "Load coverage status",
+    },
+    ["<leader>th"] = {
+      function()
+        require("coverage").hide()
+      end,
+      "Hide coverage status",
+    },
   },
 }
 
