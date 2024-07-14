@@ -237,5 +237,81 @@ local plugins = {
       },
     },
   },
+
+  -- Moody for mode cursorline
+  {
+    "svampkorg/moody.nvim",
+    event = { "ModeChanged", "BufWinEnter", "WinEnter" },
+    dependencies = {
+      -- or wherever you setup your HL groups :)
+      "catppuccin/nvim",
+    },
+    opts = {
+      -- you can set different blend values for your different modes.
+      -- Some colours might look better more dark, so set a higher value
+      -- will result in a darker shade.
+      blends = {
+        normal = 0.3,
+        insert = 0.3,
+        visual = 0.45,
+        command = 0.4,
+        operator = 0.4,
+        replace = 0.4,
+        select = 0.4,
+        terminal = 0.4,
+        terminal_n = 0.4,
+      },
+      -- there are two ways to define colours for the different modes.
+      -- one way is to define theme here in colors. Another way is to
+      -- set them up with highlight groups. Any highlight group set takes
+      -- precedence over any colors defined here.
+      colors = {
+        normal = "#00BFFF",
+        insert = "#70CF67",
+        visual = "#AD6FF7",
+        command = "#EB788B",
+        operator = "#FF8F40",
+        replace = "#E66767",
+        select = "#AD6FF7",
+        terminal = "#4CD4BD",
+        terminal_n = "#00BBCC",
+      },
+      -- disable filetypes here. Add for example "TelescopePrompt" to
+      -- not have any coloured cursorline for the telescope prompt.
+      disabled_filetypes = { "TelescopePrompt" },
+      -- you can turn on or off bold characters for the line numbers
+      bold_nr = true,
+    },
+  },
+
+  -- testing
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "fredrikaverpil/neotest-golang", -- Installation
+    },
+    init = function()
+      require("core.utils").load_mappings "neotest"
+    end,
+    config = function()
+      local config = { -- Specify configuration
+        go_test_args = {
+          "-v",
+          "-race",
+          "-count=1",
+          "-coverprofile=" .. vim.fn.getcwd() .. "/coverage.out",
+        },
+      }
+      require("neotest").setup {
+        adapters = {
+          require "neotest-golang" (config), -- Registration
+        },
+      }
+    end,
+  },
 }
 return plugins

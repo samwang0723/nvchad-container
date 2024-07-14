@@ -101,4 +101,22 @@ M.outlines = {
   },
 }
 
+M.neotest = {
+  plugin = true,
+  n = {
+    ["<leader>tr"] = {
+      function()
+        require("neotest").run.run()
+      end,
+      "Run the nearest test",
+    },
+    ["<leader>tf"] = {
+      function()
+        require("neotest").run.run(vim.fn.expand "%")
+      end,
+      "Run the current file",
+    },
+  },
+}
+
 return M

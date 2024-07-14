@@ -40,7 +40,6 @@ local opts = {
     formatting.stylua,
     -- Golang
     formatting.gofumpt,
-    formatting.goimports_reviser,
     formatting.golines,
     -- Python
     formatting.black.with { extra_args = { "--fast" } },
